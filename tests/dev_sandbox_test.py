@@ -2,7 +2,7 @@ from pathlib import Path
 import sys, shutil
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 RULES_DIR = BASE_DIR.parent / "rules"
 
 SRC_ROOT  = REPO_ROOT / "src"
