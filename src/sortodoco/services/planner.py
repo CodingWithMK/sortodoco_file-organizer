@@ -3,10 +3,10 @@ from datetime import datetime
 from enum import Enum, auto
 from dataclasses import dataclass, field
 from typing import Iterable, Set
-from domain.models import Plan, Operation
-from infra.config import load_rules, build_ext_map
-from infra.fs import ensure_session_dirs
-from utils.filters import is_ignorable
+from sortodoco.domain.models import Plan, Operation
+from sortodoco.infra.config import load_rules, build_ext_map
+from sortodoco.infra.fs import ensure_session_dirs
+from sortodoco.utils.filters import is_ignorable
 
 IGNORE_SUFFIXES = (".crdownload", ".part", ".tmp", ".download")
 CATEGORY_NAMES = ("Images", "Videos", "Audios", "Documents", "Executables", "Archives", "Fonts", "Code")

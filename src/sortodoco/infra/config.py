@@ -1,6 +1,6 @@
 from pathlib import Path
 import json
-from domain.ignore_rules import IgnoreRules
+from sortodoco.domain.ignore_rules import IgnoreRules
 
 BUILTIN_IGNORE = IgnoreRules(
     suffixes=(".crdownload", ".part", ".tmp", ".download"),

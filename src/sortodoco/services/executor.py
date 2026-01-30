@@ -1,7 +1,7 @@
 from pathlib import Path
 import shutil
 import os
-from domain.models import Plan, Operation
+from sortodoco.domain.models import Plan, Operation
 
 def unique_target(dst: Path) -> Path:
     """

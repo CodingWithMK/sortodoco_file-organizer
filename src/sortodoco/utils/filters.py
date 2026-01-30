@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import Set
-from domain.ignore_rules import IgnoreRules, SkipReason
+from sortodoco.domain.ignore_rules import IgnoreRules, SkipReason
 import fnmatch, os
 
 def is_ignorable(path: Path, rules: IgnoreRules) -> tuple[bool, Set[SkipReason]]:
