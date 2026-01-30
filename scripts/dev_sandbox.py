@@ -1,16 +1,13 @@
 from pathlib import Path
-import sys, shutil
+import shutil
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 BASE_DIR = Path(__file__).resolve().parent
 RULES_DIR = BASE_DIR.parent / "rules"
 
-SRC_ROOT  = REPO_ROOT / "src"
-sys.path.insert(0, str(SRC_ROOT))
-
-from src.sortodoco.domain.models import Plan
-from src.sortodoco.services.planner import plan_downloads
-from src.sortodoco.services.executor import apply_plan
+from sortodoco.domain.models import Plan
+from sortodoco.services.planner import plan_downloads
+from sortodoco.services.executor import apply_plan
 
 def setup_dummy_files(root: Path):
     # Create Dummy Data
