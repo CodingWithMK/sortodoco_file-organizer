@@ -28,8 +28,8 @@ Everyone knows the chaos of a cluttered desktop. SortoDoco fixes this by automat
 
 ```bash
 # Clone repository
-git clone https://github.com/<your-org>/sortodoco.git
-cd sortodoco
+git clone https://github.com/CodingWithMK/sortodoco_file-organizer.git
+cd sortodoco_file-organizer
 
 # Create & activate virtual environment with uv
 uv venv
