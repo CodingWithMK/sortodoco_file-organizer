@@ -184,9 +184,6 @@ Contributing
 - Open issues for bugs or feature requests.
 - Fork, branch, and open pull requests. Use descriptive commit messages and include tests where possible.
 
-More technical analysis
-- See `SORTODOCO_NEW_FEATURES_ANALYSIS.md` in the repository root for architecture notes, diagrams, and recommended next steps.
-
 ---
 
 ## Roadmap & next steps
