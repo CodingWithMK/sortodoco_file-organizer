@@ -1,12 +1,12 @@
 """
+Legacy main window module - deprecated.
 
+Use sortodoco.ui.app.SortoDocoApp instead.
 """
 
-import tkinter as tk
-import ttkbootstrap as ttk
+# This file is kept for backwards compatibility
+# The new GUI is in app.py
 
+from sortodoco.ui.app import SortoDocoApp, run_app
 
-
-class SortoDocoApp():
-    def __init__(self):
-        pass
+__all__ = ["SortoDocoApp", "run_app"]

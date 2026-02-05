@@ -9,10 +9,14 @@ dependencies = [
   "watchdog",
   "send2trash",
   "rich",
+  "customtkinter>=5.2.0",
+  "darkdetect>=0.8.0",
+  "pillow>=10.0.0",
 ]
 
 [project.scripts]
 sortodoco = "sortodoco.cli.main:main"
+sortodoco-gui = "sortodoco.ui.app:run_app"
 
 [build-system]
 requires = ["hatchling"]
