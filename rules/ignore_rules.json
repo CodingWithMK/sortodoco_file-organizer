@@ -1,0 +1,36 @@
+{
+    "enabled": true,
+    "ignore_dirs": true,
+    "hidden": true,
+    "allow_names": [],
+    "names": [
+        ".git",
+        "node_modules",
+        ".venv",
+        "venv",
+        "__pycache__",
+        ".pytest_cache",
+        ".mypy_cache",
+        ".ruff_cache",
+        "desktop.ini",
+        "Thumbs.db",
+        "DS_Store",
+        "env",
+        ".idea",
+        ".vscode",
+        ".mypy_cache",
+        "dist",
+        "build",
+        ".next",
+        ".turbo"
+    ],
+    "suffixes": [
+        ".tmp",
+        ".swp",
+        ".log"
+    ],
+    "globs": [
+        "*.part",
+        "*.crdownload"
+    ]
+}

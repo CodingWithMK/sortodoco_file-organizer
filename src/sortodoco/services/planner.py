@@ -7,17 +7,15 @@ from sortodoco.domain.models import Plan, Operation
 from sortodoco.infra.config import load_rules, build_ext_map
 from sortodoco.infra.fs import ensure_session_dirs
 from sortodoco.utils.filters import is_ignorable
+from sortodoco.utils.rules_loader import load_ignore_rules
 
-IGNORE_SUFFIXES = (".crdownload", ".part", ".tmp", ".download")
 CATEGORY_NAMES = ("Images", "Videos", "Audios", "Documents", "Executables", "Archives", "Fonts", "Code")
 
-# effective = load_ignore_rules(found_path)
-
-# skip, reasons = is_ignorable(path, effective)
-
+# Plan the downloads directory organization with ignore rules
 def plan_downloads(downloads_dir: Path, rules_path: Path) -> Plan:
     session_ts = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     rules = load_rules(rules_path) # {"Images": ["jpg", ...], ...}
+    ignore_rules = load_ignore_rules()
     ext_to_cat = build_ext_map(rules) # {"jpg": "Images", ...}
 
     cats = [cat for cat in CATEGORY_NAMES if cat in rules] + ["_Misc"]
@@ -31,16 +29,16 @@ def plan_downloads(downloads_dir: Path, rules_path: Path) -> Plan:
     ops: list[Operation] = []
     summary: dict[str, int] = {cat: 0 for cat in target_dirs.keys()}
 
-    for entry in sorted(downloads_dir.iterdir(), key=lambda p: p.name.lower()):
-        # Guards
-        if entry.is_dir(): # Skip every Directory (even Category-dirs)
-            continue
-        if not entry.is_file(): # Guardline
-            continue
+    # Build candidates ONCE (top-level)
+    candidates: list[Path] = []
+    for entry in downloads_dir.iterdir():
+        skip, _ = is_ignorable(entry, ignore_rules)
+        if not skip:
+            candidates.append(entry)
 
-        name_lower = entry.name.lower()
-        # Skipping uncomplete Downloads
-        if name_lower.endswith(IGNORE_SUFFIXES):
+    for entry in sorted(candidates, key=lambda p: p.name.casefold()):
+        # Guards
+        if not entry.is_file(): # Guardline
             continue
 
         ext = entry.suffix.lower().lstrip(".")
