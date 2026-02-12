@@ -12,6 +12,7 @@ dependencies = [
   "customtkinter>=5.2.0",
   "darkdetect>=0.8.0",
   "pillow>=10.0.0",
+  "platformdirs>=4.7.0",
 ]
 
 [project.scripts]
