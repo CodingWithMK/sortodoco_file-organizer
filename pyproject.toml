@@ -18,6 +18,9 @@ dependencies = [
 sortodoco = "sortodoco.cli.main:main"
 sortodoco-gui = "sortodoco.ui.app:run_app"
 
+[tool.setuptools.package-data]
+"sortodoco.rules" = ["*.json"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
